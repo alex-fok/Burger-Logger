@@ -1,5 +1,5 @@
 {
-  "name": "13-MVC",
+  "name": "burger_logger",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -20,8 +20,8 @@
   "homepage": "https://github.com/alex-fok/Burger-Logger#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "es6-promisify": "^6.1.1",
     "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "express-handlebars": "^5.2.1",
+    "mysql2": "^2.2.5"
   }
 }
