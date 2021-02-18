@@ -3,11 +3,11 @@ const mysql = require("mysql");
 const config = process.env.jawsDB || (() => {
     require('dotenv').config();
     return {
-        port: BURGER_PORT,
-        host: BURGER_HOST,
-        user: BURGER_ROOT,
-        password: BURGER_PASS,
-        database: BURGER_DB
+        port: process.env.BURGER_PORT,
+        host: process.env.BURGER_HOST,
+        user: process.env.BURGER_USER,
+        password: process.env.BURGER_PASS,
+        database: process.env.BURGER_DB
     }
 })();
 
