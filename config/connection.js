@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 const config = process.env.jawsDB || (() => {
     require('dotenv').config();
@@ -10,7 +10,6 @@ const config = process.env.jawsDB || (() => {
         database: process.env.BURGER_DB
     }
 })();
-
 const connection = mysql.createConnection(config);
 
 connection.connect((err) => {
@@ -18,4 +17,4 @@ connection.connect((err) => {
     console.log("Database Connection: connected as id " + connection.threadId);
 })
 
-module.exports = connection;
+module.exports = connection.promise();
