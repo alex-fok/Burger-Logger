@@ -1,0 +1,9 @@
+DROP DATABASE IF EXISTS burgerDB;
+CREATE DATABASE burgerDB;
+
+USE burgerDB;
+
+CREATE TABLE burger (
+id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+name varchar(100)
+);
