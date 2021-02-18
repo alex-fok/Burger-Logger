@@ -20,6 +20,7 @@
   "homepage": "https://github.com/alex-fok/Burger-Logger#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "es6-promisify": "^6.1.1",
     "express": "^4.17.1",
     "mysql": "^2.18.1"
   }
