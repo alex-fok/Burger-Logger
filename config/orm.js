@@ -1,23 +1,19 @@
-const {promisify} = require('es6-promisify');
 const connection = require('./connection');
-const pQuery = promisify(connection.query);
-
-const BURGER_TABLE = "burger";
+const BURGER_TABLE = "burgers";
 
 const orm = {
-    addBurger: name => {
-        const query = `INSERT INTO ${BURGER_TABLE} SET ?`
-        return pQuery(query, {name});
+    selectAll: () => {
+        const query = `SELECT * FROM ${BURGER_TABLE};`;
+        return connection.query(query);
     },
-    devourBurger: id => {
-        const query = `UPDATE ${BURGER_TABLE} SET status = ?`;
-        return pQuery(query, id);
+    addOne: name => {
+        const query = `INSERT INTO ${BURGER_TABLE} SET ?;`
+        return connection.query(query, {burger_name: name});
     },
-    getBurgers: () => {
-        const query = `SELECT * FROM ${BURGER_TABLE}`;
-        return pQuery(query, id);
-    },
-    end: () => connection.end()
+    updateOne: id => {
+        const query = `UPDATE ${BURGER_TABLE} SET devoured = ? WHERE id = ?;`;
+        return connection.query(query, [1, id.toString()])
+    }
 }
 
 module.exports = orm;
