@@ -1,36 +1,51 @@
-<h1>BURGER</h1>
-
-<h2>Burgers Ordered:</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      <li>{{burger_name}}
-	    <button class="change-devour" data-id="{{id}}">
-	      DEVOUR!
-	    </button>
-      </li>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers Devoured:</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      <li>{{burger_name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="add-burger">
-
-  <div class="form-group">
-    <label for="bName">Burger Name:</label>
-    <input type="text" id="bName" name="name">
+<header class="navbar navbar-dark" style="background-color: #198754;">
+  <div class="container-fluid">
+      <div class="navbar-brand">
+          <h1 class="text-light">Burger Logger</h1>
+      </div>
   </div>
+</header>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-4">
+      <h2>Burgers Ordered:</h2>
 
-  <button type="submit">Add Burger</button>
-</form>
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#unless devoured}}
+            <li class="list-group-item">
+              {{burger_name}}<button class="change-devour float-end btn btn-outline-success" data-id="{{id}}">
+                DEVOUR!
+              </button>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="col-4 offset-md-4">
+      <h2>Burgers Devoured:</h2>
+
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#if devoured}}
+            <li class="list-group-item">{{burger_name}}</li>
+          {{/if}}
+        {{/each}}
+      </ul>
+
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <h2>Add a Burger:</h2>
+  <form class="add-burger">
+
+    <div class="form-group">
+      <label for="bName">Burger Name:</label>
+      <input type="text" id="bName" name="name">
+    </div>
+
+    <button class="mt-3 btn btn-outline-danger" type="submit">Add Burger</button>
+  </form>
+</div>
