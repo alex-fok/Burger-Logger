@@ -1,6 +1,6 @@
 const mysql = require("mysql2");
 
-const config = process.env.jawsDB || (() => {
+const config = process.env.JAWSDB_URL || (() => {
     require('dotenv').config();
     return {
         port: process.env.BURGER_PORT,
