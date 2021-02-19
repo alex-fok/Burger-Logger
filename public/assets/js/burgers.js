@@ -2,14 +2,14 @@ const addBurger = document.querySelector(".add-burger");
 
 addBurger.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const data = {name: document.getElementById("bName").value};
+    const name = document.getElementById("bName").value.trim();
+    if (!name) return;
     fetch("/add", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({name})
     }).then(() => {
         location.reload();
     })
